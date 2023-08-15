@@ -1,4 +1,9 @@
-## Crianr banco de dados
+# Comandos SQL - referências
+
+## Modelagem Física com comandos **DDL**
+
+
+### Crianr banco de dados
 
 CREATED DATANASE vendas CHARACTER SET utf8mb4
 
