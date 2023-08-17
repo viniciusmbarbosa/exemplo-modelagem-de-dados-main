@@ -147,3 +147,40 @@ SELECT nome, descricao, preco FROM produtos WHERE NOT fabricante_id = 8;
 SELECT nome, descricao, preco FROM produtos WHERE  fabricante_id != 8;
 
 ```
+
+## UPDATE
+
+```sql
+UPDATE fabricantes SET nome = 'Asus do Brasil'
+WHERE id = 1; -- NÃO ESQUECER DO WHERE!! PERIGO!
+
+
+UPDATE produtos SET preco = 6549.74
+WHERE id = 4
+
+
+-- Altere a quantidade dos produtos da Apple e da Samsung para 20
+
+UPDATE produtos SET quantidade = 20 
+WHERE id = 3 OR id = 5; 
+```
+
+
+## DELETE 
+
+```sql
+
+-- NÃO SE ESQUEÇA DO WHERE!! PERIGO
+
+DELETE FROM fabricante WHERE id = 1;
+DELETE FROM fabricante WHERE id = 4;
+DELETE FROM fabricantes WHERE id = 3;
+
+-- A query abaixo NÂO FUNCIONA devido à restrição 
+-- de chave estrangeira/relacionamento, ou seja, 
+-- existem produtos associados ao fabricante 3 (apple)
+-- DELETE FROM fabricantes WHERE id = 3;
+
+```
+
+---
