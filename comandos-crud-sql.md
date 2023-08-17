@@ -67,4 +67,22 @@ VALUE(
     3
 );
 
+INSERT INTO produto(nome,descricao, preco, quantidade,fabricante_id)
+VALUE(
+    'Xbox Series S',
+    'Velocidade e desempenho de última geração.',
+    1997,
+    5,
+    8
+);
+
+INSERT INTO produtos(nome,descricao, preco, quantidade,fabricante_id)
+VALUE(
+    'Notebook Motion',
+    'Descricão: intel DUal Core 4GB de RAM, 128GB SSD e Tela 14,1 polegada',
+    1213.65,
+    8,
+    7
+);
+
 ```
