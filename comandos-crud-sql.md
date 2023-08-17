@@ -103,6 +103,39 @@ WHERE preco < 5000;
 SELECT nome, descricao FROM produtos WHERE fabricante_id = 3;
 ```
 
+## SELECT: Outras formas de uso
+
+
+### Classificando
+
+``` sql
+SELECT nome, preco FROM produtos ORDER BY nome;
+SELECT nome, preco FROM produtos ORDER BY preco;
+SELECT nome, preco FROM produtos ORDER BY preco DESC;
+
+-- DESC: classificação em ordem decrescente
+-- ASC (padrão): classificação em ordem crescente
+
+
+```
+
+### Buscando de dados
+
+``` sql
+SELECT nome, descricao FROM produtos WHERE descricao LIKE '%sistema%';
+
+-- Usamos o operador LIKE e o caractere coringa % para permitir uma busca da palavra indicada em qualquer posição dentro do texto.
+-- Nesete contexto, o % significa 'qualquer texto' antes da palavra ou depois da palavra.
+
+
+```
+
+
+
+
+
+
+
 ### Operadores lógicos: E, OU, NÃO
 
 
