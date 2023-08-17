@@ -153,6 +153,21 @@ SELECT COUNT(DISTINCT fabricante_id) as "Qtd de fabricantes com produtos" FROM p
 
 ``` 
 
+### Operações natemáticas
+
+``` sql
+SELECT nome, preco, quantidade, (preco * quantidade) as total FROM produtos
+``` 
+
+### Segmentação/Agrupamento de resiltados
+
+```sql
+UPDATE produtos SET fabrincates_id = 2 WHERE id = 2;
+
+    SELECT fabricante_id, SUM(preco) as total FROM produtos GROUP BY fabricante_id;
+
+```
+
 ### Operadores lógicos: E, OU, NÃO
 
 
