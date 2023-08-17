@@ -130,11 +130,28 @@ SELECT nome, descricao FROM produtos WHERE descricao LIKE '%sistema%';
 
 ```
 
+### Operações e funções de agregação
 
+``` sql
+SELECT SUM(preco) FROM produtos; -- SOMA
+SELECT SUM(preco) as Total FROM produtos; -- Alias/ apedido
 
+-- Exemplo de alias/apelido para outras colunas
+SELECT nome as produtos, preco as "Preço" FROM produtos;
+SELECT nome produto, preco "Preço" FROM produto;
 
+-- MÉDIA
+SELECT AVG(preco) as "Média dos Preços" FROM produtos;
+SELECT ROUND(AVG(preco), 2) as "Média dos preços" FROM produtos;
 
+-- CONTAGEM
+SELECT COUNT(id) as "QTD de produtos" FROM produtos;
 
+-- DISTINCT é usada para distinguir o id dos produtos.
+
+SELECT COUNT(DISTINCT fabricante_id) as "Qtd de fabricantes com produtos" FROM produtos;
+
+``` 
 
 ### Operadores lógicos: E, OU, NÃO
 
