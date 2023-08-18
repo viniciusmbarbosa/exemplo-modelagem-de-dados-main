@@ -248,4 +248,76 @@ DELETE FROM fabricantes WHERE id = 3;
 
 ```
 
----
+
+## Consultas (Queries) em duas ou mais tabelas relacionadas (Juncão/join)
+
+### Exibir nome do produtos e nome do fabricante
+
+
+
+```sql
+
+-- SELECT tabela.colunas, tabela.coluna
+SELECT produtos.nome, fabricanntes.nome
+
+-- INNER JOIN é o comando que permite juntar as tabelas
+FROM produtos INNER JOIN fabricantes
+
+-- ON comando para indicar a formaz critério da junção
+ON produtos.fabricantes_id = fabricantes.id;
+
+
+SELECT produtos.nome as Produto, fabricanntes.nome as Fabricante
+FROM produtos INNER JOIN fabricantes
+ON produtos.fabricantes_id = fabricantes.id;
+```
+### Nome do produtos, nome do fabricante, ordenados pelo nome do produto
+
+```sql
+SELECT
+    produtos.nome as Produto, 
+    fabricantes.nome as Fabricante
+    FROM produtos INNER JOIN fabricantes,
+    produtos.preco as "Preço",
+    ON produto.fabricante_id = fabricantes.id
+    ORDER BY Produto, Fabricante; -- ou produtos.nome
+
+```
+
+### Fabricante, soma dos preços e quantidade de produtos
+
+```sql
+SELECT 
+    fabricantes.nome AS Fabricante,
+    SUM(produtos.preco) AS total,
+    COUNT(produtos.fabricante_id) AS "Qtd de produtos"
+FROM PRODUTOS INNER JOIN fabricantes
+ON produtos.fabricante_id = fabricantes.id   
+GROUP BY Fabricante    
+ORDER BY TOTAL;
+
+```
+
+### Trazer a quantidade de produtos de cada fabricante, SOMENTE DOS FABRICANTES QUE POSSUEM PRODUTOS.
+
+```sql
+SELECT fabricantes.nome as Fabricante,
+        COUNT(produtos.fabricante_id) as 'Qtd de produtos',
+        SUM(produtos.quantidade) as 'Qtd em Estoque'
+        FROM produtos INNER JOIN fabricantes
+    ON produtos.fabricante_id = fabricantes.id
+    GROUP BY Fabricante;
+```
+
+
+### Trazer a quantidade de produtos de cada fabricante, MESMO DOS FABRICANTES QUE NÃO POSSUEM PRODUTOS.
+
+```sql
+SELECT fabricantes.nome as Fabricante,
+        COUNT(produtos.fabricante_id) as 'Qtd de produtos',
+        SUM(produtos.quantidade) as 'Qtd em Estoque'
+        FROM produtos RIGHT JOIN fabricantes
+    ON produtos.fabricante_id = fabricantes.id
+    GROUP BY Fabricante;
+```
+
